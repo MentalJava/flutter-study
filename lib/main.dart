@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/widgets/button.dart';
+import 'package:toonflix/widgets/currency_card.dart';
 
 class Player {
   String name = "uj";
@@ -14,18 +15,18 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color(0xFF181818),
+        backgroundColor: Color(0xFF181818),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 80,
+              SizedBox(
+                height: 40,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Column(
@@ -49,30 +50,30 @@ class App extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 120,
+              SizedBox(
+                height: 20,
               ),
-              const Text(
+              Text(
                 "Total Balance",
                 style: TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 0.8),
                   fontSize: 22,
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 5,
               ),
-              const Text(
+              Text(
                 "\$5 194 382",
                 style: TextStyle(
                     color: Color.fromRGBO(255, 255, 255, 1),
                     fontSize: 48,
                     fontWeight: FontWeight.w600),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Button(
@@ -87,10 +88,10 @@ class App extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 80,
+              SizedBox(
+                height: 30,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -110,71 +111,32 @@ class App extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
+              SizedBox(
                 height: 15,
               ),
-              Container(
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1F2123),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Euro",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 32,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "6 428",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "EUR",
-                                style: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 0.8),
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Transform.scale(
-                        scale: 2.2,
-                        child: Transform.translate(
-                          offset: const Offset(-5, 10),
-                          child: const Icon(
-                            Icons.euro_rounded,
-                            color: Colors.white,
-                            size: 78,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              CurrencyCard(
+                name: "Euro",
+                code: "EUR",
+                amount: "6 428",
+                icon: Icons.euro_rounded,
+                isInverted: false,
+                order: 0,
+              ),
+              CurrencyCard(
+                name: "Bitcoin",
+                code: "BTC",
+                amount: "9 785",
+                icon: Icons.currency_bitcoin,
+                isInverted: true,
+                order: -20,
+              ),
+              CurrencyCard(
+                name: "Dollar",
+                code: "USD",
+                amount: "428",
+                icon: Icons.money_outlined,
+                isInverted: false,
+                order: -40,
               ),
             ],
           ),
